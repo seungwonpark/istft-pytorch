@@ -1,8 +1,11 @@
 # istft-pytorch
-Two differenct PyTorch implementation of Inverse-STFT
+Two different PyTorch implementation of Inverse-STFT.
+
+Speed comparison results are shown in [inspection.ipynb](./inspection.ipynb).
+`istft_irfft.py` is much faster.
 
 ## Authors
-- `istft_irfft.py`: [Keunwoo Choi](https://github.com/keunwoochoi)
-- `istft_deconv.py`: [Seungwon Park](https://github.com/seungwonpark)
+- `istft_irfft.py`  - [Keunwoo Choi](https://github.com/keunwoochoi)
+- `istft_deconv.py`  - [Seungwon Park](https://github.com/seungwonpark)
 
-Refer to https://github.com/keunwoochoi/torchaudio-contrib/issues/27.
+Please refer to https://github.com/keunwoochoi/torchaudio-contrib/issues/27 for further discussion.
