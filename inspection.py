@@ -51,18 +51,18 @@ if diff < 1e-4:
         print(f'Results are consistent. Maximum difference: {diff}')
 
 
-        # In[6]:
+# In[6]:
 
 
-        get_ipython().run_line_magic('timeit', 'result_deconv = istft_deconv(stft_single, hop_length)')
+get_ipython().run_line_magic('timeit', 'result_deconv = istft_deconv(stft_single, hop_length)')
 
 
-        # In[7]:
+# In[7]:
 
 
-        get_ipython().run_line_magic('timeit', 'result_irfft = istft_irfft(stft_batch, hop_length)[0]')
+get_ipython().run_line_magic('timeit', 'result_irfft = istft_irfft(stft_batch, hop_length)[0]')
 
 
-        # # Conclusion
-        # - IRFFT-based implementation is faster, showing that better parallelization doesn't outspeed algorithmic optimization.
+# # Conclusion
+# - IRFFT-based implementation is faster, showing that better parallelization doesn't outspeed algorithmic optimization.
 
