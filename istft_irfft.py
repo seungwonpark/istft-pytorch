@@ -3,9 +3,8 @@ import librosa
 
 # this is Keunwoo Choi's implementation of istft.
 # https://gist.github.com/keunwoochoi/2f349e72cc941f6f10d4adf9b0d3f37e#file-istft-torch-py
-
-def istft_irfft(stft_matrix, hop_length=None, win_length=None, window='hann',
-          center=True, normalized=False, onesided=True, length=None):
+def istft_irfft(stft_matrix,length, hop_length=None, win_length=None, window='hann',
+          center=True, normalized=False, onesided=True):
     """stft_matrix = (batch, freq, time, complex) 
     
     All based on librosa
@@ -52,6 +51,5 @@ def istft_irfft(stft_matrix, hop_length=None, win_length=None, window='hann',
             y = y[:, :length]
         elif y.shape[1] < length:
             y = torch.cat(y[:, :length], torch.zeros(y.shape[0], length - y.shape[1], device=y.device))
-    
     coeff = n_fft/float(hop_length) / 2.0  # -> this might go wrong if curretnly asserted values (especially, `normalized`) changes.
     return y / coeff

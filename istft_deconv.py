@@ -1,8 +1,9 @@
 import torch
 import torch.nn.functional as F
 
-def istft_deconv(stft_matrix, hop_length=None, win_length=None, window='hann',
-          center=True, normalized=False, onesided=True, length=None):
+
+def istft_deconv(stft_matrix,length, hop_length=None, win_length=None, window='hann',
+          center=True, normalized=False, onesided=True):
     """stft_matrix = (freq, time, 2) (batch dimension not included)
     - Based on librosa implementation and Keunwoo Choi's implementation
         - librosa: http://librosa.github.io/librosa/_modules/librosa/core/spectrum.html#istft
@@ -51,5 +52,6 @@ def istft_deconv(stft_matrix, hop_length=None, win_length=None, window='hann',
     assert y.size(0) == expected_signal_len
 
     y = y[n_fft//2:]
+    y = y[:length]
     coeff = n_fft/float(hop_length) / 2.0  # -> this might go wrong if curretnly asserted values (especially, `normalized`) changes.
     return y / coeff
