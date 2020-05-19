@@ -1,3 +1,5 @@
+**IMPORTANT:** `torch.istft` will be available from `torch>=1.6.0`. See [pytorch/pytorch#35569](https://github.com/pytorch/pytorch/pull/35569)
+
 # istft-pytorch
 Two different PyTorch implementation of Inverse-STFT.
 
